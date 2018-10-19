@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 /* Layout */
-import Layout from '@/views/layout/Layout'
+// import Layout from '@/views/layout/Layout'
 
 /* Router Modules */
-import accountRouter from './modules/account'
-import clientRouter from './modules/client'
-import templateRouter from './modules/template'
-import orderRouter from './modules/order'
+// import accountRouter from './modules/account'
+// import clientRouter from './modules/client'
+// import templateRouter from './modules/template'
+// import orderRouter from './modules/order'
 
 Vue.use(Router)
 /** note: Submenu only appear when children.length>=1
@@ -31,52 +31,60 @@ Vue.use(Router)
 export const constantRouterMap = [
   {
     path: '/',
-    component: () => import('@/views/home/index'),
+    component: () => import('@/pages/home/index'),
     hidden: true
-  },
-  {
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
+  // },
+  // {
+  //   path: '/redirect',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [
+  //     {
+  //       path: '/redirect/:path*',
+  //       component: () => import('@/views/redirect/index')
+  //     }
+  //   ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('@/pages/login/index'),
     hidden: true,
     name: 'Login',
     meta: {
       title: 'Login'
     }
-  },
-  {
-    path: '/auth-redirect',
-    component: () => import('@/views/login/authredirect'),
-    hidden: true
-  },
-  {
-    path: '/404',
-    component: () => import('@/views/errorPage/404'),
-    hidden: true,
-    name: '404',
-    meta: {
-      title: '404'
-    }
-  },
-  {
-    path: '/401',
-    component: () => import('@/views/errorPage/401'),
-    hidden: true,
-    name: '401',
-    meta: {
-      title: '401'
-    }
+  // },
+  // {
+  //   path: '/auth-redirect',
+  //   component: () => import('@/views/login/authredirect'),
+  //   hidden: true
+  // },
+  // {
+  //   path: '/404',
+  //   component: () => import('@/views/errorPage/404'),
+  //   hidden: true,
+  //   name: '404',
+  //   meta: {
+  //     title: '404'
+  //   }
+  // },
+  // {
+  //   path: '/401',
+  //   component: () => import('@/views/errorPage/401'),
+  //   hidden: true,
+  //   name: '401',
+  //   meta: {
+  //     title: '401'
+  //   }
   }
+]
+
+export const asyncRouterMap = [
+  // accountRouter,
+  // clientRouter,
+  // templateRouter,
+  // orderRouter,
+  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 export default new Router({
@@ -84,11 +92,3 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
-export const asyncRouterMap = [
-  accountRouter,
-  clientRouter,
-  templateRouter,
-  orderRouter,
-  { path: '*', redirect: '/404', hidden: true }
-]
