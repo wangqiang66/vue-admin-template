@@ -16,10 +16,10 @@ module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   module: {
     rules: utils.styleLoaders({
-      // hotReload: true,
-      extract: true,
+      hotReload: config.dev.hotReload,
+      extract:  config.dev.exact,
       sourceMap: config.dev.cssSourceMap,
-      usePostCSS: true
+      usePostCSS: config.dev.usePostCSS
     })
   },
   // cheap-module-eval-source-map is faster for development

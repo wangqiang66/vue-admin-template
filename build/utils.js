@@ -60,15 +60,17 @@ exports.cssLoaders = function (options) {
         })
       })
     }
-
     loaders.push({
       loader: 'sass-resources-loader',
       options: {
         resources: [resolveSassResourceLoader('var.scss')]
       }
     })
-
-    return loaders
+    if (options.hotReload) {
+      return ['css-hot-loader'].concat(loaders);
+    } else {
+      return loaders;
+    }
   }
 
   // generate loader string to be used with extract text plugin

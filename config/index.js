@@ -27,7 +27,9 @@ module.exports = {
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-
+    exact: true,
+    // hotReload: true,
+    usePostCSS: true,
     /**
      * Source Maps
      */
@@ -55,6 +57,9 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
+    exact: true,
+    hotReload: true,
+    usePostCSS: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
